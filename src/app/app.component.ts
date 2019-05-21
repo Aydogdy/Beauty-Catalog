@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AppState } from './app.state';
+import { Store } from '@ngrx/store';
+import { reducer } from './reducers/product.reducers';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'beautyCatalog';
+
+  constructor(
+    private devTool: DevToolsExtension,
+    private store: Store<AppState>
+  ) {}
 }

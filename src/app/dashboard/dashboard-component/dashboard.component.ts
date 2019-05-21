@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from 'src/app/models/category';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.state';
-import { ProductService } from 'src/app/services/product.service';
+import { select } from '@ngrx/store';
+import { UsersActions } from 'src/app/actions/product.actions';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,16 +10,10 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  categories: ICategory[];
+  @select('categories') public categories$: Observable<any>;
 
-  constructor(
-    private store: Store<AppState>,
-    private productService: ProductService
-  ) {
-    store.select('categories').subscribe(res => {
-      this.categories = res;
-      console.log(this.categories);
-    });
+  constructor(public actions: UsersActions) {
+    actions.getCategories();
   }
 
   ngOnInit() {}

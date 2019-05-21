@@ -19,12 +19,12 @@ export class UsersActions {
   constructor(private store: Store<AppState>, private http: HttpClient) {}
 
   getCategories() {
-    this.http.get(`${this.API_URL}/categories`).subscribe(res => {
-      this.store.dispatch({
-        type: UsersActions.GET_CATEGORIES,
-        payload: { res }
-      });
+    // this.http.get(`${this.API_URL}/categories`).subscribe(res => {
+    this.store.dispatch({
+      type: UsersActions.GET_CATEGORIES
+      // payload: { res }
     });
+    // });
   }
 
   add(product: IProduct): void {
