@@ -1,19 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { StoreModule } from '@ngrx/store';
+import { NgReduxModule, NgRedux } from '@angular-redux/store';
+import { NgReduxFormModule } from '@angular-redux/form';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { reducer } from './reducers/product.reducers';
+
+import { StoreModule } from './module';
+
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    StoreModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({ city: reducer })
+    NgReduxModule,
+    NgReduxFormModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

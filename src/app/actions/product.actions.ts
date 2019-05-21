@@ -1,47 +1,26 @@
-import { Store } from '@ngrx/store';
-import { Injectable } from '@angular/core';
-import { AppState } from '../app.state';
-import { HttpClient } from '@angular/common/http';
 import { IProduct } from '../models/product';
+import { Action } from '@ngrx/store';
 
 export const GET_CATEGORIES = '[CATEGORY] Get category';
-export const ADD_PRODUCT = '[PRODUCT] Add product';
-export const REMOVE_PRODUCT = '[PRODUCT] Remove product';
+export const CREATE_PRODUCT = '[PRODUCT] CREATE product';
+export const DELETE_PRODUCT = '[PRODUCT] Delete product';
 
-@Injectable()
-export class UsersActions {
-  static GET_CATEGORIES = '[CATEGORY] Get category';
-  static ADD_PRODUCT = '[PRODUCT] Add product';
-  static REMOVE_PRODUCT = '[PRODUCT] Remove product';
+export class GetCategories implements Action {
+  readonly type = GET_CATEGORIES;
 
-  API_URL = 'https://jsonplaceholder.typicode.com';
-
-  constructor(private store: Store<AppState>, private http: HttpClient) {}
-
-  getCategories() {
-    // this.http.get(`${this.API_URL}/categories`).subscribe(res => {
-    this.store.dispatch({
-      type: UsersActions.GET_CATEGORIES
-      // payload: { res }
-    });
-    // });
-  }
-
-  add(product: IProduct): void {
-    this.http.post(`${this.API_URL}/products/`, product).subscribe(res => {
-      this.store.dispatch({
-        type: UsersActions.ADD_PRODUCT,
-        payload: { res }
-      });
-    });
-  }
-
-  deleteProduct(id: string): void {
-    this.http.delete(`${this.API_URL}/products/${id}`).subscribe(res => {
-      this.store.dispatch({
-        type: UsersActions.REMOVE_PRODUCT,
-        payload: { id }
-      });
-    });
-  }
+  constructor() { }
 }
+
+export class CreateProduct implements Action {
+  readonly type = CREATE_PRODUCT;
+
+  constructor(public payload: IProduct) { }
+}
+
+export class DeleteProduct implements Action {
+  readonly type = DELETE_PRODUCT;
+
+  constructor(public id: string) { }
+}
+
+export type Actions = CreateProduct | DeleteProduct;
