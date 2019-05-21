@@ -67,8 +67,43 @@ export default function categoryReducer(
                   "name": "Lenovo Legion Armored" 
               }
           ]
-      }
-  ]
+      },
+      { 
+        "id": "8kjn48ebs8dd8s",
+        "name": "Sport",
+        "views": 8,
+        "products": [
+                {
+                    "id": "3238nns9h9shs",
+                    "image": "https://m.media-amazon.com/images/I/91r8TF05ItL._AC_UL320_.jpg",
+                    "name": "Spalding TF250 Men's" 
+                },
+                {
+                    "id": "3238nfgs9h9shs",
+                    "image": "https://images-na.ssl-images-amazon.com/images/I/41qqjsntmAL._SY434_BO1,204,203,200_.jpg",
+                    "name": "PRESCHOOL UA BPS CURRY" 
+                },
+                {
+                    "id": "3238nfg97s9shs",
+                    "image": "https://m.media-amazon.com/images/I/A1gayeAwQuL._AC_UL436_.jpg",
+                    "name": "Brazilian Jiu Jitsu Uniform" 
+                }
+                
+            ]
+        },
+        { 
+            "id": "748dbnd8b3389d",
+            "name": "Traveling",
+            "views": 3,
+            "products": [
+                {
+                    "id": "45343fns9h9shs",
+                    "image": "https://images-na.ssl-images-amazon.com/images/I/A1YcqYk2bML._AC_SR201,266_.jpg",
+                    "name": "Lenovo Legion Armored" 
+                }
+            ]
+        }
+  ];
 
   switch (action.type) {
       case GET_CATEGORIES:

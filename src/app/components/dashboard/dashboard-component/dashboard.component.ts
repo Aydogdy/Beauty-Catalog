@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { select, NgRedux } from '@angular-redux/store';
 
-import { ICategory } from '../../models/category';
-import { AppState } from '../../app.state';
-import { GET_CATEGORIES } from '../../actions/category.actions';
+import { ICategory } from '../../../models/category';
+import { AppState } from '../../../app.state';
+import { GET_CATEGORIES } from '../../../actions/category.actions';
 
 @Component({
   selector: 'app-dashboard',

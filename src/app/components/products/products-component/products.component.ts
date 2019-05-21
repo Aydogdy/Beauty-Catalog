@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { select, NgRedux } from '@angular-redux/store';
 import { Observable } from 'rxjs/internal/Observable';
 
-import { AppState } from '../../app.state';
-import { IProduct } from '../../models/product';
-import { CREATE_PRODUCT } from '../../actions/product.actions';
+import { IProduct } from '../../../models/product';
+import { AppState } from '../../../app.state';
+import { CREATE_PRODUCT } from '../../../actions/product.actions';
 
 @Component({
   selector: 'app-products',
