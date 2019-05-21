@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { select, NgRedux } from '@angular-redux/store';
-import { AppState } from '../../app.state';
-import { IProduct } from 'src/app/models/product';
-import { CREATE_PRODUCT } from 'src/app/actions/product.actions';
 import { Observable } from 'rxjs/internal/Observable';
+
+import { AppState } from '../../app.state';
+import { IProduct } from '../../models/product';
+import { CREATE_PRODUCT } from '../../actions/product.actions';
 
 @Component({
   selector: 'app-products',
@@ -13,7 +14,7 @@ import { Observable } from 'rxjs/internal/Observable';
 export class ProductsComponent implements OnInit {
   customers: Observable<IProduct[]>;
 
-  @select('productReducer') readonly products$: Observable<IProduct[]>;
+  @select('products') readonly products$: Observable<IProduct[]>;
 
   constructor(private ngRedux: NgRedux<AppState>) {
   }

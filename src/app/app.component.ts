@@ -8,9 +8,5 @@ import { createStore } from 'redux';
 })
 export class AppComponent {
   title = 'beautyCatalog';
-
-
-  constructor(
-  ) {
-  }
+  constructor() {}
 }

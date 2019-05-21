@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { select, NgRedux } from '@angular-redux/store';
+
+import { ICategory } from '../../models/category';
+import { AppState } from '../../app.state';
+import { GET_CATEGORIES } from '../../actions/category.actions';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +13,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() {
+  categories: Observable<ICategory[]>;
+
+  @select('categories') readonly categories$: Observable<ICategory[]>;
+
+  constructor(private ngRedux: NgRedux<AppState>) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getCatalogs();
+  }
+
+  getCatalogs() {
+    this.ngRedux.dispatch({ type: GET_CATEGORIES });
+  }
 }
