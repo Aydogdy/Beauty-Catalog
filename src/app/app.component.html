@@ -1,9 +1,19 @@
-<h1>
-  {{ title }}
-</h1>
-
-<button routerLink="/dashboard">Dash</button>
-<button routerLink="/products">Prod</button>
-<button routerLink="">Home</button>
+<nav class="navbar navbar-dark bg-dark mb-5">
+  <a class="navbar-brand" routerLink="/dashboard">Beauty Catalog</a>
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <a
+        class="nav-item nav-link"
+        href="https://github.com/Aydogdy"
+        target="_blank"
+      >
+        <i class="fa fa-github"></i>
+      </a>
+      <a class="nav-item nav-link" href="https://shahyrov.com" target="_blank">
+        <i class="fa fa-medium"></i>
+      </a>
+    </div>
+  </div>
+</nav>
 
 <router-outlet></router-outlet>
