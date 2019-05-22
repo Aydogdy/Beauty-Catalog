@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { select, NgRedux } from '@angular-redux/store';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 
-import { CREATE_PRODUCT, DELETE_PRODUCT, SET_ACTIVE_CATEGORY } from '../../../actions/product.actions';
+import { CREATE_PRODUCT, DELETE_PRODUCT } from '../../../actions/product.actions';
 import { UPDATE_VIEWS } from '../../../actions/category.actions';
 import { ICategory } from '../../../models/category';
 import { IProduct } from '../../../models/product';
 import { AppState } from '../../../app.state';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-products',

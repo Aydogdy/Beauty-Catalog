@@ -4,9 +4,9 @@ import { select, NgRedux } from '@angular-redux/store';
 import { Router } from '@angular/router';
 
 import { SET_ACTIVE_CATEGORY } from '../../../actions/product.actions';
+import { SET_PRODUCTS } from 'src/app/actions/category.actions';
 import { ICategory } from '../../../models/category';
 import { AppState } from '../../../app.state';
-import { SET_PRODUCTS } from 'src/app/actions/category.actions';
 
 @Component({
   selector: 'app-dashboard',

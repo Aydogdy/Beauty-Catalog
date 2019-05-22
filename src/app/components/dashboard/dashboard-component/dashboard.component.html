@@ -1,17 +1,17 @@
 <div class="py-5">
     <div class="container">
       <div class="row hidden-md-up">
-        <div class="col-md-4" *ngFor="let pro of (categories$ | async)">
+        <div class="col-md-4" *ngFor="let cat of (categories$ | async)">
 
           <div class="card bg-light mb-3">
-            <div class="card-header">{{ pro.name }}</div>
+            <div class="card-header">{{ cat.name }}</div>
             <div class="card-body">
               <h5 class="card-title">
                   Total views: 
-                  <span class="badge badge-pill badge-primary">{{ pro.views }}</span>
+                  <span class="badge badge-pill badge-primary">{{ cat.views }}</span>
                 </h5>
               <p class="card-text">
-                <button type="button" class="btn btn-outline-primary" (click)="goToProductPage(pro)">View products</button>
+                <button type="button" class="btn btn-outline-primary" (click)="goToProductPage(cat)">View products</button>
               </p>
             </div>
           </div>
