@@ -25,23 +25,16 @@
     </div>
 </div>
 
-
-<div class="py-5">
-  <div class="container">
-    <div class="row hidden-md-up">
-      <div class="card-deck">
-        <div class="card" *ngFor="let pro of (activeCategory$ | async).products">
-          <img src="{{pro.image}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{pro.name}}</h5>
-          </div>
-          <div class="card-footer" style="display: flex; justify-content: center;">
-            <button type="button" class="btn btn-danger" (click)="onDelete(pro.id)">
-              <i class="fa fa-trash"></i> Delete
-           </button>
-          </div>
+<ul class="cards">
+    <li class="cards__item" *ngFor="let pro of (activeCategory$ | async).products">
+      <div class="card">
+        <div></div>
+          <img src="{{pro.image}}" class="card__image" alt="image place">
+          <div class="card__content">
+          <div class="card__title">{{pro.name}}</div>
+          <p class="card__text">This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto. </p>
+          <button class="btn btn--block card__btn">Button</button>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </li>
+  </ul>
