@@ -1,5 +1,5 @@
 import { ICategory } from '../models/category';
-import { CategoryActions, GET_CATEGORIES, UPDATE_VIEWS } from '../actions/category.actions';
+import { CategoryActions, GET_CATEGORIES, UPDATE_VIEWS, SET_PRODUCTS } from '../actions/category.actions';
 
 const cats = [
     { 
@@ -80,6 +80,11 @@ export default function categoryReducer(
             const vals = [...state];
             vals[ind].views = vals[ind].views + 1;
             return vals;
+    case SET_PRODUCTS:
+            const ix = state.findIndex(x => x.id === action.payload.id);
+            const oldArr = [...state];
+            oldArr[ix].products = action.payload.products;
+            return oldArr;
 
       default:
           return state;

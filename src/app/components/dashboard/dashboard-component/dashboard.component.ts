@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { SET_ACTIVE_CATEGORY } from '../../../actions/product.actions';
 import { ICategory } from '../../../models/category';
 import { AppState } from '../../../app.state';
+import { SET_PRODUCTS } from 'src/app/actions/category.actions';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,7 +22,13 @@ export class DashboardComponent implements OnInit {
   constructor(private ngRedux: NgRedux<AppState>,
               private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+      const active = this.ngRedux.getState().activeCategory;
+      if (active['views'] !== null) {
+        this.ngRedux.dispatch({type: SET_PRODUCTS, payload: this.ngRedux.getState().activeCategory});
+        this.ngRedux.dispatch({type: SET_ACTIVE_CATEGORY, payload: {id: '', name: '', views: null, products: []}});
+      }
+  }
 
   goToProductPage(category: ICategory) {
     this.router.navigate(['/products']);
