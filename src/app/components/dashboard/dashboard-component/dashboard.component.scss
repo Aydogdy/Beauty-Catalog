@@ -1,16 +1,4 @@
-.py-5 {
-    .container{
-        .row {
-            .card {
-                margin-bottom: 20px;
-                .card-block {
-                    p {
-                        span {
-                            font-size: 18;
-                        }
-                    }
-                }
-            }
-        }
-    }
+.card-text{
+    display: flex;
+    justify-content: flex-end;
 }

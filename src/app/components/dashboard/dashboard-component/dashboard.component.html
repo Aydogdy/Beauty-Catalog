@@ -3,7 +3,7 @@
       <div class="row hidden-md-up">
         <div class="col-md-4" *ngFor="let pro of (categories$ | async)">
 
-          <div class="card bg-light mb-3" style="max-width: 18rem;">
+          <div class="card bg-light mb-3">
             <div class="card-header">{{ pro.name }}</div>
             <div class="card-body">
               <h5 class="card-title">
@@ -11,7 +11,7 @@
                   <span class="badge badge-pill badge-primary">{{ pro.views }}</span>
                 </h5>
               <p class="card-text">
-                <a href="#" class="card-link text-right">View products</a>
+                <button type="button" class="btn btn-outline-primary" (click)="goToProductPage(pro)">View products</button>
               </p>
             </div>
           </div>

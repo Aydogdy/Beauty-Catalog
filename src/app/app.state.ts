@@ -3,5 +3,5 @@ import { IProduct } from './models/product';
 
 export interface AppState {
   categories?: ICategory[];
-  products?: IProduct[];
+  activeCategory?: ICategory;
 }

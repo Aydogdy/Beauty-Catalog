@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { select, NgRedux } from '@angular-redux/store';
+import { Router } from '@angular/router';
 
+import { SET_ACTIVE_CATEGORY } from '../../../actions/product.actions';
 import { ICategory } from '../../../models/category';
 import { AppState } from '../../../app.state';
-import { GET_CATEGORIES } from '../../../actions/category.actions';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,14 +18,17 @@ export class DashboardComponent implements OnInit {
 
   @select('categories') readonly categories$: Observable<ICategory[]>;
 
-  constructor(private ngRedux: NgRedux<AppState>) {
+  constructor(private ngRedux: NgRedux<AppState>,
+              private router: Router) {}
+
+  ngOnInit() {}
+
+  goToProductPage(category: ICategory) {
+    this.router.navigate(['/products']);
+    this.setActiveCategory(category);
   }
 
-  ngOnInit() {
-    this.getCatalogs();
-  }
-
-  getCatalogs() {
-    this.ngRedux.dispatch({ type: GET_CATEGORIES });
+  setActiveCategory(category: ICategory) {
+    this.ngRedux.dispatch({type: SET_ACTIVE_CATEGORY, payload: category});
   }
 }

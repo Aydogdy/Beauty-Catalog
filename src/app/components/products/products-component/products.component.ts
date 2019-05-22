@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { select, NgRedux } from '@angular-redux/store';
 import { Observable } from 'rxjs/internal/Observable';
 
+import { CREATE_PRODUCT } from '../../../actions/product.actions';
+import { UPDATE_VIEWS } from '../../../actions/category.actions';
+import { ICategory } from '../../../models/category';
 import { IProduct } from '../../../models/product';
 import { AppState } from '../../../app.state';
-import { CREATE_PRODUCT } from '../../../actions/product.actions';
 
 @Component({
   selector: 'app-products',
@@ -12,14 +14,13 @@ import { CREATE_PRODUCT } from '../../../actions/product.actions';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  customers: Observable<IProduct[]>;
+  @select('activeCategory') readonly activeCategory$: Observable<ICategory>;
+  categoryName: string;
 
-  @select('products') readonly products$: Observable<IProduct[]>;
-
-  constructor(private ngRedux: NgRedux<AppState>) {
-  }
+  constructor(private ngRedux: NgRedux<AppState>) {}
 
   ngOnInit() {
+    this.ngRedux.dispatch({type: UPDATE_VIEWS, payload: this.ngRedux.getState().activeCategory});
   }
 
   saveProduct(product: IProduct) {

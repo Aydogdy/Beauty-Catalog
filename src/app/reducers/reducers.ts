@@ -8,5 +8,5 @@ export const rootReducer = composeReducers(
     defaultFormReducer(),
     combineReducers({
         categories: categoryReducer,
-        products: productReducer
+        activeCategory: productReducer
     }));

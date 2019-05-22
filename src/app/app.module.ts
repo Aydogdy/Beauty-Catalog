@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { StoreModule } from './module';
+import { ProductService } from './services/product.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { StoreModule } from './module';
     NgReduxModule,
     NgReduxFormModule,
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

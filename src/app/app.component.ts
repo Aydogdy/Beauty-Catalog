@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { createStore } from 'redux';
+import { ProductService } from './services/product.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,5 @@ import { createStore } from 'redux';
 })
 export class AppComponent {
   title = 'beautyCatalog';
-  constructor() {}
+  constructor(private productService: ProductService) {}
 }
