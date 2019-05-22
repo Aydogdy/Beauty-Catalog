@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, NgRedux } from '@angular-redux/store';
 import { Observable } from 'rxjs/internal/Observable';
 
-import { CREATE_PRODUCT } from '../../../actions/product.actions';
+import { CREATE_PRODUCT, DELETE_PRODUCT } from '../../../actions/product.actions';
 import { UPDATE_VIEWS } from '../../../actions/category.actions';
 import { ICategory } from '../../../models/category';
 import { IProduct } from '../../../models/product';
@@ -25,6 +25,10 @@ export class ProductsComponent implements OnInit {
 
   saveProduct(product: IProduct) {
     this.ngRedux.dispatch({type: CREATE_PRODUCT, payload: product});
+  }
+
+  onDelete(id: string) {
+    this.ngRedux.dispatch({type: DELETE_PRODUCT, id: id});
   }
 
 }

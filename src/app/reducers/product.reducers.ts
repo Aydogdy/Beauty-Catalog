@@ -10,12 +10,12 @@ export default function productReducer(
 
     case SET_ACTIVE_CATEGORY:
         return action.payload;
-        
-      // case CREATE_PRODUCT:
-      //   return {...state, action.payload};
 
-      // case DELETE_PRODUCT:
-      //     return state.filter(({ id }) => id !== action.id);
+      case CREATE_PRODUCT:
+        return {...state, products: [...state.products, action.payload]};
+
+      case DELETE_PRODUCT:
+          return {...state, products: state.products.filter(({ id }) => id !== action.id)};
 
       default:
           return state;

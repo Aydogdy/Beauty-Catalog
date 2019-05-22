@@ -79,7 +79,6 @@ export default function categoryReducer(
             const ind = state.indexOf(action.payload);
             const vals = [...state];
             vals[ind].views = vals[ind].views + 1;
-            console.log(vals);
             return vals;
 
       default:
