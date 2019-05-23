@@ -19,6 +19,9 @@ export class ProductsComponent implements OnInit {
   productForm: FormGroup;
   submitted = false;
 
+  cardView = true;
+  listView = false;
+
   @select('activeCategory') readonly activeCategory$: Observable<ICategory>;
 
   constructor(private ngRedux: NgRedux<AppState>, private fb: FormBuilder) {}
@@ -33,6 +36,18 @@ export class ProductsComponent implements OnInit {
   }
 
   get f() { return this.productForm.controls; }
+
+  cardViewClick() {
+    console.log('CArd');
+    this.cardView = true;
+    this.listView = false;
+  }
+
+  listViewClick() {
+    console.log('List');
+    this.listView = true;
+    this.cardView = false;
+  }
 
   saveProduct(product: IProduct) {
     this.ngRedux.dispatch({type: CREATE_PRODUCT, payload: product});

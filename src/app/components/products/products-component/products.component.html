@@ -17,7 +17,7 @@
                         <div *ngIf="f.image.errors.required">Product image is required</div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="display: flex; justify-content: flex-end;">
                     <button class="btn btn-primary">Add Product</button>
                 </div>
             </form>
@@ -25,16 +25,40 @@
     </div>
 </div>
 
-<ul class="cards">
-    <li class="cards__item" *ngFor="let pro of (activeCategory$ | async).products">
-      <div class="card">
-        <div></div>
-          <img src="{{pro.image}}" class="card__image" alt="image place">
-          <div class="card__content">
-          <div class="card__title">{{pro.name}}</div>
-          <p class="card__text">This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto. </p>
-          <button class="btn btn--block card__btn">Button</button>
-        </div>
-      </div>
-    </li>
-  </ul>
+<button class="btn btn-primary" (click)="listViewClick()" style="margin-left: 10%; margin-bottom: 20px;">
+        <i class="fa fa-list"></i>
+</button>
+
+<button class="btn btn-primary" (click)="cardViewClick()" style="margin-bottom: 20px;">
+        <i class="fa fa-th-large"></i>
+</button>
+
+<section class="card-view" [ngClass]="cardView ? 'show' : 'hide'"> 
+    <ul class="cards">
+        <li class="cards__item" *ngFor="let pro of (activeCategory$ | async).products">
+            <div class="card">
+                <img [src]="pro.image" class="card__image" alt="image place">
+                <div class="card__content">
+                    <div class="card__title">{{pro.name}}</div>
+                    <p class="card__text">This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto. </p>
+                    <button class="btn btn--block card__btn" (click)="onDelete(pro.id)">
+                        <i class="fa fa-trash"></i> Delete 
+                    </button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+    
+<section class="list-view" [ngClass]="listView ? 'show' : 'hide'">
+    <ul class="list-group">
+        <li class="list-group-item d-flex align-items-center"
+            *ngFor="let pro of (activeCategory$ | async).products">
+            <img src="{{pro.image}}" class="list_image" alt="image place">
+            <div style="display: flex; flex-direction: column; padding-left: 20px;">
+                <h6>{{pro.name}}</h6>
+                <p>This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto. </p>
+            </div>
+        </li>
+    </ul>
+</section>
