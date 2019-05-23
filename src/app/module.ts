@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 // our store and Angular.
 import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
 import { provideReduxForms } from '@angular-redux/form';
+
 import { AppState } from './app.state';
 import { rootReducer } from './reducers/reducers';
 

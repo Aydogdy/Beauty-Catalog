@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import { GET_CATEGORIES } from '../actions/category.actions';
 import { NgRedux } from '@angular-redux/store';
-import { AppState } from '../app.state';
 import { HttpClient } from '@angular/common/http';
+
+import { GET_CATEGORIES } from '../actions/category.actions';
+import { AppState } from '../app.state';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor(private ngRedux: NgRedux<AppState>, private http: HttpClient) {
+  constructor(private ngRedux: NgRedux<AppState>,
+              private http: HttpClient) {
     this.getCategories();
   }
 
